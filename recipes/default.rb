@@ -25,7 +25,7 @@ include_recipe "git"
 
 
 git "Download EXT:solr source, version #{node['ext-solr']['version']}" do
-  repository "git://git.typo3.org/TYPO3v4/Extensions/solr.git"
+  repository "git://git.typo3.org/TYPO3CMS/Extensions/solr.git"
   revision node['ext-solr']['version']
   destination "/var/www/site-#{node['typo3']['site_name']}/typo3conf/ext/solr"
  end
@@ -51,7 +51,7 @@ unless File.exists? "/opt/solr-tomcat/solr/typo3cores/conf/version-#{node['ext-s
     user "root"
   end
 
-  # create a lock/identification file 
+  # create a lock/identification file
   file "/opt/solr-tomcat/solr/typo3cores/conf/version-#{node['ext-solr']['version']}.lock" do
     action :touch
   end
