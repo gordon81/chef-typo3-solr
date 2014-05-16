@@ -32,7 +32,7 @@ git "Download EXT:solr source, version #{node['ext-solr']['version']}" do
 
 execute "Install Solr server" do
   user "root"
-  command "/var/www/site-#{node['typo3']['site_name']}/typo3conf/ext/solr/resources/shell/install-solr.sh"
+  command "/var/www/site-#{node['typo3']['site_name']}/typo3conf/ext/solr/Resources/Shell/install-solr.sh"
   creates "/opt/solr-tomcat/solr/solr.xml"
 end
 
@@ -47,7 +47,7 @@ unless File.exists? "/opt/solr-tomcat/solr/typo3cores/conf/version-#{node['ext-s
     user "root"
   end
 
-  execute "cp -R /var/www/site-#{node['typo3']['site_name']}/typo3conf/ext/solr/resources/solr/typo3cores /opt/solr-tomcat/solr/" do
+  execute "cp -R /var/www/site-#{node['typo3']['site_name']}/typo3conf/ext/solr/Resources/Solr/typo3cores /opt/solr-tomcat/solr/" do
     user "root"
   end
 
